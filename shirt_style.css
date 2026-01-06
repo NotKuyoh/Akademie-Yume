@@ -1,0 +1,476 @@
+/* =========================
+   ROOT & GLOBAL
+========================= */
+
+:root {
+    --bg-light: #f5f7fb;
+    --text-light: #1f2933;
+    --accent: #8fa6d8;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Crimson Pro", serif;
+    background: var(--bg-light);
+    color: var(--text-light);
+  }
+  
+  /* =========================
+     TYPO
+  ========================= */
+  
+  h1,
+  h2,
+  h3,
+  .logo,
+  .nav-links a,
+  .shirt-title {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+  }
+  
+  /* =========================
+     NAVBAR
+  ========================= */
+  
+  .navbar,
+  .navbar a {
+    color: #000;
+  }
+  
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.65);
+  }
+  
+  /* Logo links */
+  .logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin-right: auto;
+  }
+  
+  /* Nav rechts */
+  .nav-links {
+    display: flex;
+    gap: 1.6rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  /* =========================
+     BURGER MENU
+  ========================= */
+  
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .burger span {
+    width: 24px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+  }
+  
+  /* =========================
+     PRODUCT DETAIL
+  ========================= */
+  
+  .product-detail {
+    padding: 4rem 2rem;
+  }
+  
+  .product-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  /* =========================
+     PRODUCT GALLERY
+  ========================= */
+  
+  .product-gallery-slider {
+    position: relative;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  
+  /* Viewport */
+  .gallery-viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Track */
+  .gallery-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(.4,0,.2,1);
+  }
+  
+  /* Slide */
+  .gallery-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .gallery-slide img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  
+  /* =========================
+     GALLERY ARROWS
+  ========================= */
+  
+  .gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 10;
+  }
+  
+  .gallery-btn.prev {
+    left: -3rem;
+  }
+  
+  .gallery-btn.next {
+    right: -3rem;
+  }
+  
+  /* =========================
+     GALLERY DOTS
+  ========================= */
+  
+  .gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: .6rem;
+    margin-top: 1.2rem;
+  }
+  
+  .gallery-dots button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    background: #ccc;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .gallery-dots button.active {
+    background: #000;
+  }
+  
+  /* =========================
+     PRODUCT INFO
+  ========================= */
+  
+  .product-info h1 {
+    font-size: 2.2rem;
+    margin-bottom: .6rem;
+  }
+  
+  .product-sub {
+    opacity: .7;
+    margin-bottom: 2rem;
+  }
+  
+  .product-text {
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* =========================
+     SIZES
+  ========================= */
+  
+  .size-select span {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .08em;
+    display: block;
+    margin-bottom: .6rem;
+  }
+  
+  .sizes {
+    display: flex;
+    gap: .6rem;
+  }
+  
+  .sizes button {
+    border: 1px solid #000;
+    background: none;
+    padding: .4rem .9rem;
+    cursor: pointer;
+  }
+  
+  /* =========================
+     CTA
+  ========================= */
+  
+  .product-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: .9rem 2.4rem;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+  }
+  
+  /* =========================
+     RECOMMENDATIONS
+  ========================= */
+  
+  .product-recommend {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .product-recommend h2 {
+    font-family: "Raleway", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .recommend-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  
+  .recommend-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 1.6rem;
+    text-align: center;
+  }
+  
+  .recommend-card h3 {
+    font-size: .9rem;
+  }
+  
+  .recommend-card img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+    margin: 1rem 0 1.4rem;
+  }
+  
+  .recommend-card a {
+    display: inline-block;
+    padding: .8rem 2rem;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Raleway", sans-serif;
+  }
+  
+  /* =========================
+     FOOTER
+  ========================= */
+  
+  footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    opacity: .6;
+    font-size: .9rem;
+  }
+  
+  .burger span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .nav-links.active ~ .burger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .nav-links.active ~ .burger span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav-links.active ~ .burger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* =========================
+     RESPONSIVE
+  ========================= */
+  
+/* =========================
+   RESPONSIVE – MOBILE (≤900px)
+========================= */
+
+@media (max-width: 900px) {
+
+    /* =========================
+       LAYOUT
+    ========================= */
+  
+    .product-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+  
+    .sizes {
+      justify-content: center;
+    }
+  
+    /* =========================
+       PRODUCT GALLERY – SWIPE
+    ========================= */
+  
+    /* Buttons ausblenden */
+    .gallery-btn {
+      display: none;
+    }
+  
+    /* Swipe-Viewport aktivieren */
+    .gallery-viewport {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    /* Track */
+    .gallery-track {
+      display: flex;
+      transition: none; /* kein Button-Slide */
+    }
+  
+    /* Slides */
+    .gallery-slide {
+      min-width: 100%;
+      scroll-snap-align: center;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .gallery-slide img {
+      max-width: 300px;
+    }
+  
+    /* Scrollbar verstecken */
+    .gallery-viewport::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .gallery-viewport {
+      scrollbar-width: none;
+    }
+  
+    /* =========================
+       DOTS
+    ========================= */
+  
+    .gallery-dots {
+      margin-top: 1rem;
+    }
+  
+    /* =========================
+       RECOMMENDATIONS
+    ========================= */
+  
+    .recommend-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  
+    .recommend-card img {
+      max-width: 160px;
+    }
+  
+    /* =========================
+       NAVBAR (falls vorhanden)
+    ========================= */
+  
+  /* Burger */
+  .burger {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.8rem 0;
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+
+    /* Smooth magic */
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  }
+    

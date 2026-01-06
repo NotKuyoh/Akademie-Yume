@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DO YOU LOVE JUNÉ? – Akademie Yume</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shirt_style.css">
+</head>
+
+<body class="light">
+
+  <header class="navbar">
+    <a href="index.html" class="logo">Akademie Yume</a>
+  
+    <nav class="nav-links">
+      <a href="index.html">Startseite</a>
+      <a href="index.html">Shop</a>
+      <a href="index.html">Charaktere</a>
+      <a href="index.html">Überseite</a>
+    </nav>
+  
+    <button class="burger" id="burger" aria-label="Menü öffnen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>  
+
+<main>
+
+<section class="product-detail">
+
+  <div class="product-grid">
+
+    <!-- GALLERY -->
+    <div class="product-gallery-slider">
+
+      <button class="gallery-btn prev">‹</button>
+    
+      <div class="gallery-viewport">
+        <div class="gallery-track">
+    
+          <div class="gallery-slide">
+            <img src="images/Buch1.png">
+          </div>
+    
+        </div>
+      </div>
+    
+      <button class="gallery-btn next">›</button>
+    
+      <div class="gallery-dots"></div>
+    </div>
+    
+
+    <!-- INFO -->
+    <div class="product-info">
+      <h1>BUCH "MINAMI DOESN´T KNOW SHE´S MISSING</h1>
+
+      <p class="product-text">
+        <strong>Minami Doesn’t Know She’s Missing</strong> ist ein Light-Novel
+        mit 412 Seiten und erzählt eine leise, emotionale Geschichte über
+        Orientierung, Nähe und das Gefühl, nicht ganz am richtigen Ort zu sein.
+        In ruhigem Tempo entfaltet sich eine Erzählung, die weniger erklärt,
+        als vielmehr Raum lässt – für Gedanken, Erinnerungen und Zwischentöne.
+      </p>
+      
+      <p class="product-text">
+        Im Mittelpunkt steht Kenji, der sich in einer stillen Zwischenphase
+        seines Lebens befindet, während seine Schwestern – allen voran Minami –
+        scheinbar längst angekommen sind. Besonders die Verbindung zwischen
+        Kenji und Minami zieht sich wie ein leiser roter Faden durch das Buch:
+        unausgesprochen, vertraut und getragen von gegenseitigem Verständnis.
+      </p>
+      
+      <p class="product-text">
+        Ein unerwarteter Brief wird zum Ausgangspunkt einer Bewegung,
+        die Kenji aus dem Gewohnten herausführt. Begegnungen, Orte und
+        neue Beziehungen fügen sich zu einem Weg, der weniger einer
+        klassischen Reise gleicht als einem inneren Prozess – langsam,
+        vorsichtig und ehrlich.
+      </p>
+      
+      <p class="product-text">
+        Der Roman ist inspiriert vom japanischen Slice-of-Life-Stil
+        und richtet sich an Leserinnen und Leser, die ruhige Geschichten,
+        emotionale Tiefe und charaktergetriebene Erzählungen schätzen.
+        Ein Buch für alle, die das Ungesagte zwischen den Zeilen suchen
+        und sich Zeit für eine Geschichte nehmen möchten.
+      </p>
+
+      <a
+        href="mailto:kontakt@akademie-yume.de?subject=Shirt Anfrage – MINAMI IS MISSING!"
+        class="product-btn"
+      >
+        Anfrage senden
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="product-recommend">
+  <h1>Weitere Shirts</h1>
+
+  <div class="recommend-grid">
+
+    <div class="recommend-card">
+      <h3>MINAMI HAS DISAPPEARED!</h3>
+      <img src="images/Shirt2.png" alt="">
+      <a href="Shirt1.html">Jetzt entdecken</a>
+    </div>
+
+    <div class="recommend-card">
+      <h3>DO YOU LOVE JUNÈ?</h3>
+      <img src="images/Shirt4.png" alt="">
+      <a href="Shirt2.html">Jetzt entdecken</a>
+    </div>
+
+    <div class="recommend-card">
+      <h3>CRAZY ABOUT HARUKA?</h3>
+      <img src="images/Shirt3.png" alt="">
+      <a href="Shirt3.html">Jetzt entdecken</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Akademie Yume
+</footer>
+
+<!-- SLIDER SCRIPT -->
+<script>
+  const track = document.querySelector(".gallery-track");
+  const slides = document.querySelectorAll(".gallery-slide");
+  const dotsContainer = document.querySelector(".gallery-dots");
+  const prev = document.querySelector(".gallery-btn.prev");
+  const next = document.querySelector(".gallery-btn.next");
+
+  let index = 0;
+  track.style.transform = "translateX(0)";
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll("button");
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(d => d.classList.remove("active"));
+    dots[index].classList.add("active");
+  }
+
+  prev.onclick = () => goTo(index - 1);
+  next.onclick = () => goTo(index + 1);
+</script>
+
+<script>
+  const zoomImages = document.querySelectorAll(".gallery-slide img");
+
+  zoomImages.forEach(img => {
+    img.addEventListener("mousemove", e => {
+      const rect = img.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      img.style.transformOrigin = `${x}% ${y}%`;
+      img.style.transform = "scale(1.6)";
+    });
+
+    img.addEventListener("mouseleave", () => {
+      img.style.transformOrigin = "center center";
+      img.style.transform = "scale(1)";
+    });
+  });
+</script>
+
+<script>
+  const burger = document.getElementById("burger");
+  const nav = document.querySelector(".nav-links");
+  const navLinks = nav.querySelectorAll("a");
+
+  // Burger toggle
+  burger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+
+  // Close menu when clicking a link
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("active");
+    });
+  });
+</script>
+
+</body>
+</html>
