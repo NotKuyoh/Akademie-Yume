@@ -1,0 +1,416 @@
+/* =========================
+   ROOT & GLOBAL
+========================= */
+
+:root {
+  --bg-light: #f5f7fb;
+  --text-light: #1f2933;
+  --accent: #8fa6d8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Crimson Pro", serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* =========================
+   TYPO
+========================= */
+
+h1,
+h2,
+h3,
+.logo,
+.nav-links a,
+.shirt-title {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar,
+.navbar a {
+  color: #000;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* =========================
+   BURGER
+========================= */
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 24px;
+  height: 2px;
+  background: #000;
+  border-radius: 2px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  background-image: url("images/cover-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 900px;
+  color: #fff;
+  padding-left: 6rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section:not(.hero) {
+  max-width: 1200px;
+  margin: auto;
+  padding: 4.5rem 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   BOOK SECTION (NO SLIDER)
+========================= */
+
+.book {
+  padding: 5rem 2rem;
+}
+
+.book-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.book-text {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 1.4rem;
+}
+
+.book-image {
+  justify-self: end;
+}
+
+.book-image img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+}
+
+.book-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.9rem 2.4rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+
+/* =========================
+   PRODUCT DETAIL
+========================= */
+
+.product-detail {
+  padding: 4rem 2rem;
+}
+
+.product-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* =========================
+   PRODUCT GALLERY (SHIRTS)
+========================= */
+
+.product-gallery-slider {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.gallery-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+
+.gallery-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-slide img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+}
+
+/* =========================
+   PRODUCT INFO
+========================= */
+
+.product-info h1 {
+  font-size: 2.2rem;
+  margin-bottom: .6rem;
+}
+
+.product-sub {
+  opacity: .7;
+  margin-bottom: 2rem;
+}
+
+.product-text {
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.size-select span {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: .8rem;
+  letter-spacing: .08em;
+}
+
+.sizes {
+  display: flex;
+  gap: .6rem;
+}
+
+.sizes button {
+  border: 1px solid #000;
+  background: none;
+  padding: .4rem .9rem;
+}
+
+.product-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: .9rem 2.4rem;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+}
+
+/* =========================
+   RECOMMENDATIONS
+========================= */
+
+.product-recommend {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.recommend-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.recommend-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 1.6rem;
+}
+
+.recommend-card img {
+  width: 100%;
+  max-width: 180px;
+  margin: 1rem 0 1.4rem;
+}
+
+.recommend-card a {
+  display: inline-block;
+  padding: .8rem 2rem;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  opacity: .6;
+  font-size: .9rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.8rem 0;
+    background: rgba(255,255,255,.95);
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .hero {
+    min-height: 80vh;
+    text-align: center;
+    justify-content: center;
+    background-image: url("images/cover-hero-mobile.jpg");
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,.65),
+      rgba(0,0,0,.35),
+      rgba(0,0,0,.15)
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    padding-left: 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .book-image {
+    justify-self: center;
+  }
+
+  .book-image img {
+    max-width: 340px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .sizes {
+    justify-content: center;
+  }
+
+  .recommend-grid {
+    grid-template-columns: 1fr;
+  }
+}
