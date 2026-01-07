@@ -204,7 +204,85 @@
   .gallery-dots button.active {
     background: #000;
   }
-  
+
+/* Wrapper */
+.navbar .lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.navbar .lang-switch button {
+  all: unset; /* 🔑 verhindert Vererbung / Crashes */
+
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+
+  font-family: "Raleway", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Hover */
+.navbar .lang-switch button:hover {
+  color: #000;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Active */
+.navbar .lang-switch button.active {
+  color: #000;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   DARK MODE SAFE
+========================= */
+
+body.dark .navbar .lang-switch button {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark .navbar .lang-switch button:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+body.dark .navbar .lang-switch button.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================
+   MOBILE NAV SAFE
+========================= */
+
+@media (max-width: 900px) {
+
+  /* Language Switch IM Burger-Menü */
+  .nav-links .lang-switch {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .navbar .lang-switch button {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.75rem;
+  }
+}
+
   /* =========================
      PRODUCT INFO
   ========================= */
