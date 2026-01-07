@@ -204,10 +204,16 @@ h2 {
 ========================= */
 
 .product-gallery-slider {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-}
+    max-width: 540px;
+  }
+  
+  .gallery-slide img {
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    object-fit: contain;
+  }
+  
 
 .gallery-viewport {
   width: 100%;
@@ -223,12 +229,6 @@ h2 {
   min-width: 100%;
   display: flex;
   justify-content: center;
-}
-
-.gallery-slide img {
-  width: 100%;
-  max-width: 420px;
-  display: block;
 }
 
 /* =========================
