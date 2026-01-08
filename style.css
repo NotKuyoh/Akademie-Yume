@@ -176,6 +176,7 @@ section:not(.hero) {
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 /* =========================
@@ -305,14 +306,88 @@ h2 {
    FOOTER / MISC
 ========================= */
 
-.update-entry {
-  font-size: 1.1rem;
+/* =========================
+   ABOUT SECTION – CENTERED & TIGHT
+========================= */
+
+.about {
+  position: relative;
+  padding: 6rem 2rem;
+
+  /* centers the whole block visually */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.about p {
-  max-width: 700px;
-  line-height: 1.7;
+/* Headline centered with text block */
+.about h2 {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
 }
+
+/* Text */
+.about p {
+  width: 100%;
+  max-width: 760px; /* tighter than before */
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin: 0 auto 1.6rem;
+  opacity: 0.85;
+}
+
+/* Divider */
+.about p:not(:last-child)::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 1px;
+  margin: 1.6rem auto 0; /* centered */
+  background: var(--accent-soft);
+  opacity: 0.45;
+}
+
+/* Emphasis */
+.about em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark .about p {
+  color: rgba(229,231,235,0.78);
+}
+
+body.dark .about p:not(:last-child)::after {
+  background: rgba(143,166,216,0.4);
+}
+
+body.dark .about em {
+  color: #8fa6d8;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .about {
+    padding: 4.5rem 1.6rem;
+  }
+
+  .about h2 {
+    text-align: center;
+  }
+
+  .about p {
+    font-size: 1rem;
+  }
+}
+
 
 footer {
   text-align: center;
@@ -334,7 +409,6 @@ footer {
 }
 
 .characters h2 {
-  text-align: center;
   margin-bottom: 3rem;
 }
 
