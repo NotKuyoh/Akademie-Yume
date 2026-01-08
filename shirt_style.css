@@ -5,7 +5,6 @@
 :root {
   --bg-dark: #0b1020;
   --text-dark: #e5e7eb;
-
   --accent: #8fa6d8;
   --accent-soft: #b7c7ec;
 }
@@ -47,7 +46,6 @@ h3,
   display: flex;
   align-items: center;
   padding: 1.2rem 2rem;
-
   background: rgba(15,20,50,0.75);
   backdrop-filter: blur(16px);
 }
@@ -57,7 +55,6 @@ h3,
   color: #e5e7eb;
 }
 
-/* Logo */
 .logo {
   font-weight: 700;
   font-size: 1.1rem;
@@ -65,7 +62,6 @@ h3,
   margin-right: auto;
 }
 
-/* Nav */
 .nav-links {
   display: flex;
   gap: 1.6rem;
@@ -95,10 +91,7 @@ h3,
   height: 2px;
   background: #fff;
   border-radius: 2px;
-}
-
-body.dark .burger span {
-  background: #ffffff;
+  transition: transform .3s ease, opacity .3s ease;
 }
 
 /* =========================
@@ -106,7 +99,7 @@ body.dark .burger span {
 ========================= */
 
 .product-detail {
-  padding: 4.5rem 2rem;
+  padding: 1rem 2rem;
 }
 
 .product-grid {
@@ -114,15 +107,49 @@ body.dark .burger span {
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 0rem 4rem;
   align-items: center;
+
+  grid-template-areas:
+    "gallery header"
+    "gallery info";
 }
 
+/* =========================
+   GRID AREAS
+========================= */
+
 .product-gallery-slider {
+  grid-area: gallery;
   position: relative;
-  max-width: 680px; /* ⬅️ bigger gallery */
+  max-width: 680px;
   margin: 0 auto;
 }
+
+.product-header {
+  grid-area: header;
+}
+
+.product-info {
+  grid-area: info;
+}
+
+/* =========================
+   PRODUCT HEADER
+========================= */
+
+.product-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: .6rem;
+}
+
+.product-sub {
+  opacity: 0.6;
+}
+
+/* =========================
+   PRODUCT GALLERY
+========================= */
 
 .gallery-viewport {
   width: 100%;
@@ -140,13 +167,11 @@ body.dark .burger span {
   align-items: center;
 }
 
-/* ⬇️ BIGGER SHIRT IMAGE */
 .gallery-slide img {
   width: 100%;
-  max-width: 680px; /* ⬅️ bigger image */
+  max-width: 680px;
   object-fit: contain;
-
-  transition: transform 0.25s ease;
+  transition: transform .25s ease;
 }
 
 /* =========================
@@ -160,11 +185,9 @@ body.dark .burger span {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-
   background: rgba(18,25,54,0.9);
   color: #e5e7eb;
   border: none;
-
   font-size: 1.6rem;
   cursor: pointer;
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
@@ -174,7 +197,7 @@ body.dark .burger span {
 .gallery-btn.next { right: -3.5rem; }
 
 /* =========================
-   DOTS
+   GALLERY DOTS
 ========================= */
 
 .gallery-dots {
@@ -184,25 +207,16 @@ body.dark .burger span {
   margin-top: 1.4rem;
 }
 
-/* =========================
-   GALLERY DOTS – FIXED ROUND
-========================= */
-
 .gallery-dots button {
   width: 8px;
   height: 8px;
-
   padding: 0;
   margin: 0;
-
   border-radius: 50%;
   border: none;
-
   background: rgba(255,255,255,0.25);
   cursor: pointer;
-
   display: block;
-  box-sizing: border-box;
   line-height: 1;
   font-size: 0;
 }
@@ -211,20 +225,9 @@ body.dark .burger span {
   background: var(--accent);
 }
 
-
 /* =========================
-   PRODUCT INFO
+   PRODUCT TEXT
 ========================= */
-
-.product-info h1 {
-  font-size: 2.2rem;
-  margin-bottom: .6rem;
-}
-
-.product-sub {
-  opacity: 0.6;
-  margin-bottom: 2rem;
-}
 
 .product-text {
   line-height: 1.7;
@@ -270,14 +273,11 @@ body.dark .burger span {
   margin-top: 2rem;
   padding: .9rem 2.4rem;
   border-radius: 999px;
-
   background: var(--accent);
   color: #0b1020;
-
   text-decoration: none;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
@@ -291,7 +291,7 @@ body.dark .burger span {
 ========================= */
 
 .product-recommend {
-  padding: 4.5rem 2rem;
+  padding: 0rem 2rem;
   text-align: center;
 }
 
@@ -336,9 +336,6 @@ footer {
   font-size: .9rem;
 }
 
-/* =========================
-   MOBILE
-========================= */
 .burger span {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -355,21 +352,13 @@ footer {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-body.dark .burger span {
-  background: #e5e7eb;
-}
 /* =========================
-   RESPONSIVE – SHIRT SHOP
-   (≤ 900px)
+   RESPONSIVE (≤ 900px)
 ========================= */
 
 @media (max-width: 900px) {
 
-  /* =========================
-     NAVBAR
-  ========================= */
-
-  /* Burger */
+  /* NAV */
   .burger {
     display: flex;
   }
@@ -379,22 +368,16 @@ body.dark .burger span {
     top: 100%;
     left: 0;
     right: 0;
-
     flex-direction: column;
     align-items: center;
     gap: 1.4rem;
     padding: 1.8rem 0;
-
     background: rgba(15,20,50,0.95);
     backdrop-filter: blur(16px);
-
     opacity: 0;
     transform: translateY(-10px);
     pointer-events: none;
-
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
+    transition: opacity .3s ease, transform .3s ease;
   }
 
   .nav-links.active {
@@ -403,53 +386,49 @@ body.dark .burger span {
     pointer-events: auto;
   }
 
-  /* =========================
-     PRODUCT LAYOUT
-  ========================= */
-
-  .product-detail {
-    padding: 3.5rem 1.6rem;
-  }
-
+  /* GRID */
   .product-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
     text-align: center;
+
+    grid-template-areas:
+      "header"
+      "gallery"
+      "info";
   }
 
-  /* =========================
-     PRODUCT GALLERY (SWIPE)
-  ========================= */
+  .product-header {
+    margin-bottom: -2rem;
+  }
 
+  .product-header h1 {
+    font-size: 2rem;
+  }
+
+  /* GALLERY */
   .gallery-btn {
     display: none;
   }
 
   .gallery-viewport {
-    width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
-
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
   .gallery-track {
-    display: flex;
     transition: none;
   }
 
   .gallery-slide {
-    min-width: 100%;
     scroll-snap-align: center;
-    justify-content: center;
   }
 
   .gallery-slide img {
     max-width: 300px;
   }
 
-  /* Scrollbar verstecken */
   .gallery-viewport::-webkit-scrollbar {
     display: none;
   }
@@ -458,70 +437,33 @@ body.dark .burger span {
     scrollbar-width: none;
   }
 
-  /* =========================
-     GALLERY DOTS
-  ========================= */
-
-  .gallery-dots {
-    margin-top: 1rem;
-  }
-
-  /* =========================
-     PRODUCT INFO
-  ========================= */
-
-  .product-info h1 {
-    font-size: 1.9rem;
-  }
-
-  .product-sub {
-    margin-bottom: 1.6rem;
-  }
-
+  /* TEXT */
   .product-text {
     text-align: left;
+    padding: 0rem 0rem;
   }
-
-  /* =========================
-     SIZES
-  ========================= */
 
   .sizes {
     justify-content: center;
     flex-wrap: wrap;
   }
 
-  /* =========================
-     CTA
-  ========================= */
-
   .product-btn {
     margin: 2.2rem auto 0;
   }
 
-  /* =========================
-     RECOMMENDATIONS
-  ========================= */
-
-  .product-recommend {
-    padding: 3.5rem 1.6rem;
-  }
-
+  /* RECOMMEND */
   .recommend-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .recommend-card img {
-    max-width: 160px;
+  .product-recommend {
+    padding: 0rem 2rem;
   }
-
-  /* =========================
-     FOOTER
-  ========================= */
 
   footer {
     padding: 2.2rem 1rem;
-    font-size: 0.85rem;
+    font-size: .85rem;
   }
 }
