@@ -714,6 +714,12 @@ body.dark footer {
       transform 0.3s ease;
   }
 
+  section:not(.hero) {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
   .nav-links.active {
     opacity: 1;
     transform: translateY(0);
