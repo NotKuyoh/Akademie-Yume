@@ -17,6 +17,11 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
 section {
   scroll-margin-top: 90px;
 }
@@ -25,6 +30,7 @@ body {
   margin: 0;
   font-family: "Crimson Pro", serif;
   transition: background 0.3s ease, color 0.3s ease;
+  user-select: none;
 }
 
 body.light {

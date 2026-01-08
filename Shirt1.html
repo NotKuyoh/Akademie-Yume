@@ -164,6 +164,20 @@
   © 2026 Akademie Yume – Kein direkter Verkauf über diese Website. Anfragen ausschließlich über private Nachricht.
 </footer>
 
+<script>
+  document.addEventListener("contextmenu", e => e.preventDefault());
+
+  document.addEventListener("keydown", e => {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+    }
+  });
+</script>
+
 <!-- SLIDER SCRIPT -->
 <script>
   const track = document.querySelector(".gallery-track");
