@@ -1,19 +1,16 @@
 /* =========================
-   ROOT & GLOBAL (DARK MODE)
+   ROOT & GLOBAL
 ========================= */
 
 :root {
-  --bg-main: #0b1020;
-  --bg-surface: #121936;
-  --bg-elevated: #18214a;
+  --bg-light: #f5f7fb;
+  --text-light: #1f2933;
 
-  --text-main: #e5e7eb;
-  --text-soft: rgba(229, 231, 235, 0.7);
+  --bg-dark: #0b1020;
+  --text-dark: #e5e7eb;
 
   --accent: #8fa6d8;
   --accent-soft: #b7c7ec;
-
-  --border-soft: rgba(255, 255, 255, 0.08);
 }
 
 html {
@@ -27,9 +24,17 @@ section {
 body {
   margin: 0;
   font-family: "Crimson Pro", serif;
-  background: var(--bg-main);
-  color: var(--text-main);
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 /* =========================
@@ -50,6 +55,11 @@ h3,
    NAVBAR
 ========================= */
 
+.navbar,
+.navbar a {
+  color: #000;
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -57,18 +67,11 @@ h3,
   display: flex;
   align-items: center;
   padding: 1.2rem 2rem;
-
-  backdrop-filter: blur(16px);
-  background: rgba(15, 20, 50, 0.75);
-  border-bottom: 1px solid var(--border-soft);
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.65);
 }
 
-.navbar,
-.navbar a {
-  color: var(--text-main);
-}
-
-/* Logo */
+/* Logo links */
 .logo {
   font-weight: 700;
   font-size: 1.1rem;
@@ -76,7 +79,7 @@ h3,
   margin-right: auto;
 }
 
-/* Nav */
+/* Nav rechts */
 .nav-links {
   display: flex;
   gap: 1.6rem;
@@ -85,11 +88,6 @@ h3,
 .nav-links a {
   text-decoration: none;
   font-weight: 600;
-  opacity: 0.85;
-}
-
-.nav-links a:hover {
-  opacity: 1;
 }
 
 /* =========================
@@ -109,13 +107,12 @@ h3,
 .burger span {
   width: 24px;
   height: 2px;
-  background: var(--text-main);
+  background: #000;
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* =========================
-   HERO
+   HERO – FULL WIDTH
 ========================= */
 
 .hero {
@@ -124,17 +121,15 @@ h3,
   display: flex;
   align-items: center;
   padding: 0 2rem;
-
   background-image: url("images/cover-hero.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.hero::before {
-  content: "";
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 14, 40, 0.6);
   z-index: 1;
 }
 
@@ -142,8 +137,8 @@ h3,
   position: relative;
   z-index: 2;
   max-width: 900px;
-  padding-left: 6rem;
   color: white;
+  padding-left: 6rem;
 }
 
 .hero h1 {
@@ -153,7 +148,6 @@ h3,
 
 .subtitle {
   font-size: 1.2rem;
-  opacity: 0.85;
 }
 
 /* CTA */
@@ -162,11 +156,9 @@ h3,
   margin-top: 2rem;
   padding: 0.9rem 2.2rem;
   border-radius: 999px;
-
   background: var(--accent);
-  color: #0b1020;
+  color: white;
   text-decoration: none;
-
   font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
@@ -200,89 +192,172 @@ h2 {
 .book-text {
   font-size: 1.1rem;
   line-height: 1.75;
-  color: var(--text-soft);
+  margin-bottom: 1.4rem;
 }
 
 .book-text strong {
-  color: var(--text-main);
   font-weight: 600;
+}
+
+/* Book image (no shadow, no card) */
+.book-image {
+  justify-self: end;
 }
 
 .book-image img {
   width: 100%;
   max-width: 920px;
+  display: block;
 }
 
-/* Button */
+/* CTA */
+.book-cta {
+  margin-top: 2rem;
+}
+
 .book-btn {
   display: inline-block;
   padding: 0.9rem 2.4rem;
   border-radius: 999px;
-
   background: var(--accent);
-  color: #0b1020;
+  color: white;
   text-decoration: none;
-
   font-family: "Raleway", sans-serif;
   font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .book-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Desktop: Button unter Text */
+@media (min-width: 901px) {
+  .book-cta {
+    grid-column: 1 / 2;
+  }
 }
 
 /* =========================
-   MERCH
+   MERCH / SHIRTS
 ========================= */
+
+.merch {
+  margin-top: 2rem;
+}
 
 .merch-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* 2x2 auf Desktop */
   gap: 2rem;
 }
 
 .shirt-card {
-  background: var(--bg-elevated);
+  background: #ffffff;
   border-radius: 24px;
   padding: 1.8rem 1.6rem 2rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  box-shadow: 0 25px 60px rgba(0,0,0,0.45);
-  transition: transform 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .shirt-card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.shirt-card img {
+  width: 100%;
+  max-width: 260px;
+  object-fit: contain;
+  margin-bottom: 1.4rem;
 }
 
 .shirt-meta {
   font-size: 0.95rem;
-  opacity: 0.65;
+  opacity: 0.7;
+  margin-bottom: 1.6rem;
 }
 
 .shirt-btn {
   border: none;
-  background: var(--accent);
-  color: #0b1020;
-
+  background: #000;
+  color: #fff;
   padding: 0.9rem 2.2rem;
   border-radius: 999px;
-
   font-family: "Raleway", sans-serif;
   font-weight: 600;
+  letter-spacing: 0.08em;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.shirt-btn:hover {
+  background: #222;
+  transform: scale(1.03);
 }
 
 /* =========================
-   SLIDER / CHARACTERS
+   FOOTER / MISC
+========================= */
+
+.update-entry {
+  font-size: 1.1rem;
+}
+
+.about p {
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   CHARACTERS
+========================= */
+
+/* =========================
+   CHARACTER SECTION
+========================= */
+
+.characters {
+  padding: 4.5rem 2rem;
+}
+
+.characters h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* =========================
+   SLIDER CORE
+========================= */
+
+.character-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* =========================
+   SLIDES
 ========================= */
 
 .character-slide {
+  min-width: 100%;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -293,52 +368,247 @@ h2 {
   pointer-events: auto;
 }
 
+/* 🔑 THIS IS THE FIX */
+.character-slide-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.character-image {
+  display: flex;
+  justify-content: center;
+}
+
+.character-image img {
+  max-width: 300px;
+  max-height: 500px;
+  width: auto;
+  display: block;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.character-text h3 {
+  margin-bottom: 1rem;
+}
+
 .character-text p {
   line-height: 1.7;
-  color: var(--text-soft);
 }
 
-/* Arrows */
+/* =========================
+   NAV BUTTONS
+========================= */
+
 .slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
-  color: var(--text-main);
   font-size: 3rem;
   cursor: pointer;
+  z-index: 10;
 }
 
-/* Dots */
+.slider-btn.prev {
+  left: 1rem;
+}
+
+.slider-btn.next {
+  right: 1rem;
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+
 .slider-dots button {
   width: 8px;
   height: 8px;
+  padding: 0;
   border-radius: 50%;
-  background: rgba(255,255,255,0.25);
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+
+  /* WICHTIG */
+  display: block;
+  line-height: 1;
+  font-size: 0;
+  box-sizing: border-box;
 }
 
 .slider-dots button.active {
-  background: var(--accent);
+  background: #000;
+}
+
+.burger span {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-links.active ~ .burger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-links.active ~ .burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-links.active ~ .burger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* =========================
-   FOOTER
+   PRODUCT DETAIL
 ========================= */
 
-footer {
-  text-align: center;
-  padding: 2.5rem 1rem;
-  font-size: 0.9rem;
-  opacity: 0.6;
+/* ==================================================
+   DARK MODE – SAFE OVERRIDE LAYER
+   (ORIGINAL CSS UNTOUCHED)
+================================================== */
+
+body.dark {
+  background: #0b1020;
+  color: #e5e7eb;
 }
 
+/* ---------- GLOBAL TEXT ---------- */
+
+body.dark p,
+body.dark span,
+body.dark li {
+  color: rgba(229,231,235,0.8);
+}
+
+/* ---------- NAVBAR ---------- */
+
+body.dark .navbar {
+  background: rgba(15,20,50,0.75);
+  backdrop-filter: blur(16px);
+}
+
+body.dark .navbar,
+body.dark .navbar a {
+  color: #e5e7eb;
+}
+
+body.dark .burger span {
+  background: #e5e7eb;
+}
+
+/* Mobile Nav */
+@media (max-width: 900px) {
+  body.dark .nav-links {
+    background: rgba(15,20,50,0.95);
+  }
+}
+
+/* ---------- HERO ---------- */
+
+body.dark .hero::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(5,8,25,0.55),
+    rgba(5,8,25,0.75)
+  );
+}
+
+body.dark .hero-content {
+  color: #fff;
+}
+
+/* ---------- BUTTONS ---------- */
+
+body.dark .cta,
+body.dark .book-btn,
+body.dark .shirt-btn {
+  background: #8fa6d8;
+  color: #0b1020;
+}
+
+/* ---------- MERCH ---------- */
+
+body.dark .shirt-card {
+  background: #121936;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+}
+
+/* ---------- SLIDER ---------- */
+
+body.dark .slider-btn {
+  color: #e5e7eb;
+}
+
+body.dark .slider-dots button {
+  background: rgba(255,255,255,0.25);
+}
+
+body.dark .slider-dots button.active {
+  background: #8fa6d8;
+}
+
+/* ---------- FOOTER ---------- */
+
+body.dark footer {
+  color: rgba(229,231,235,0.6);
+}
+
+
+
 /* =========================
-   MOBILE NAV
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .character-slide-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+
+  .character-image img {
+    max-width: 260px;
+    max-height: 420px;
+  }
+}
+
+
+
+/* =========================
+   RESPONSIVE
 ========================= */
 
 @media (max-width: 900px) {
 
+  /* Burger */
   .burger {
     display: flex;
   }
+
+/* =========================
+   MOBILE NAV – SMOOTH
+========================= */
+
+@media (max-width: 900px) {
 
   .nav-links {
     position: absolute;
@@ -349,15 +619,19 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 1.4rem;
-    padding: 2rem 0;
+    padding: 1.8rem 0;
 
-    background: rgba(15, 20, 50, 0.95);
-    backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
 
+    /* Smooth magic */
     opacity: 0;
     transform: translateY(-10px);
     pointer-events: none;
-    transition: all 0.3s ease;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
 
   .nav-links.active {
@@ -365,8 +639,78 @@ footer {
     transform: translateY(0);
     pointer-events: auto;
   }
+}
+.hero {
+  position: relative;
+  min-height: 80vh;
+  justify-content: center;
+  text-align: center;
+
+  background-image: url("images/cover-hero-mobile.jpg");
+  background-position: center top;
+  background-size: cover;
+}
+
+/* Schwarzer Fade NUR auf Mobile */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.75)
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-left: 0;
+  margin: 0 auto;
+  max-width: 600px; /* wie Buch-Text */
+}
+
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Book order */
+  .book-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .book-text-wrap {
+    order: 1;
+  }
+
+  .book-text {
+    text-align: left;
+  }
+  
+  .book-image {
+    order: 2;
+    justify-self: center;
+  }
+
+  .book-cta {
+    order: 3;
+  }
+
+  .book-btn {
+    margin: 2rem auto 0;
+  }
 
   .merch-grid {
     grid-template-columns: 1fr;
   }
+
 }
