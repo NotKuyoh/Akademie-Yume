@@ -107,7 +107,7 @@ h3,
 .burger span {
   width: 24px;
   height: 2px;
-  background: #000;
+  background: #f34;
   border-radius: 2px;
 }
 
@@ -585,7 +585,7 @@ body.dark .navbar a {
 }
 
 body.dark .burger span {
-  background: #e5e7eb;
+  background: #ffffff;
 }
 
 /* Mobile Nav */
