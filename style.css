@@ -831,7 +831,7 @@ footer {
   .char-ghost-name { display: none; }
   .char-controls { padding: 0 1.5rem; }
 
-  .about { padding: 7rem 0 6rem; }
+  .about { padding: 0rem 0 6rem; }
   .about-inner { grid-template-columns: 1fr; gap: 2rem; padding: 0 1.5rem; }
   .about-sticky { position: static; }
   .about-right { padding-top: 0; }
