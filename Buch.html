@@ -6,6 +6,25 @@
   <title>Akademie Yume – Das Buch</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="book_style.css">
+  <style>
+    /* Language toggle – mirrors shirt_style.css rule */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 0;
+      margin-left: 2rem; background: none; border: none; cursor: pointer;
+      font-family: 'Raleway', sans-serif; font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; padding: 0;
+      color: rgba(238,240,246,0.35); user-select: none;
+    }
+    .lang-toggle span { transition: color 0.3s ease; }
+    .lang-toggle .lang-sep { margin: 0 5px; opacity: 0.3; }
+    .lang-toggle .lang-active { color: #c9a96e; }
+    [lang-de], [lang-en] { display: inline; }
+    :root[data-lang='de'] [lang-en] { display: none; }
+    :root[data-lang='en'] [lang-de] { display: none; }
+    [data-lang-block] { display: block; }
+    :root[data-lang='de'] [data-lang-block='en'] { display: none; }
+    :root[data-lang='en'] [data-lang-block='de'] { display: none; }
+  </style>
 </head>
 <body>
 
@@ -13,11 +32,14 @@
   <div class="navbar-bg"></div>
   <a href="index.html" class="logo">Akademie Yume</a>
   <nav class="nav-links" id="navLinks">
-    <a href="index.html">Startseite</a>
+    <a href="index.html"><span lang-de>Startseite</span><span lang-en>Home</span></a>
     <a href="index.html#merch">Shop</a>
-    <a href="index.html#characters">Charaktere</a>
+    <a href="index.html#characters"><span lang-de>Charaktere</span><span lang-en>Characters</span></a>
     <a href="index.html#about">About</a>
   </nav>
+  <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+    <span data-toggle-de>DE</span><span class="lang-sep">|</span><span data-toggle-en>EN</span>
+  </button>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </header>
 
@@ -27,16 +49,21 @@
     <img src="images/cover-hero.jpg" alt="">
   </div>
   <div class="book-hero-text">
-    <span class="book-hero-eyebrow">Akademie Yume · Light Novel · 2025</span>
+    <span class="book-hero-eyebrow">
+      <span lang-de>Akademie Yume · Light Novel · 2025</span>
+      <span lang-en>Akademie Yume · Light Novel · 2025</span>
+    </span>
     <h1>
       Minami<br>
       <strong>Doesn't<br>Know</strong>
       <em style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.8rem,3vw,3.5rem);font-weight:300;display:block;line-height:1.2;margin-top:0.15em;">She's Missing</em>
     </h1>
-    <span class="book-hero-sub">412 Seiten · Slice of Life · Romance</span>
+    <span class="book-hero-sub">
+      <span lang-de>412 Seiten · Slice of Life · Romance</span>
+      <span lang-en>412 pages · Slice of Life · Romance</span>
+    </span>
   </div>
 
-  <!-- Floating book cover overlaid on the split -->
   <div class="book-hero-cover">
     <img src="images/Buch1.png" alt="Buchcover">
   </div>
@@ -47,7 +74,7 @@
   </div>
 </div>
 
-<!-- DETAIL: sticky cover + scrolling text -->
+<!-- DETAIL -->
 <div class="book-detail">
 
   <div class="book-cover-col" data-r="left">
@@ -56,53 +83,94 @@
       <div class="book-cover-glow"></div>
     </div>
     <div class="book-meta">
-      <div class="book-meta-item"><span>Umfang</span><span>412 Seiten</span></div>
-      <div class="book-meta-item"><span>Genre</span><span>Light Novel</span></div>
-      <div class="book-meta-item"><span>Stil</span><span>Slice of Life</span></div>
-      <div class="book-meta-item"><span>Jahr</span><span>2025</span></div>
-      <div class="book-meta-item"><span>Sprache</span><span>Deutsch</span></div>
+      <div class="book-meta-item">
+        <span><span lang-de>Umfang</span><span lang-en>Length</span></span>
+        <span><span lang-de>412 Seiten</span><span lang-en>412 pages</span></span>
+      </div>
+      <div class="book-meta-item">
+        <span>Genre</span><span>Light Novel</span>
+      </div>
+      <div class="book-meta-item">
+        <span>Stil</span><span>Slice of Life</span>
+      </div>
+      <div class="book-meta-item">
+        <span><span lang-de>Jahr</span><span lang-en>Year</span></span>
+        <span>2025</span>
+      </div>
+      <div class="book-meta-item">
+        <span><span lang-de>Sprache</span><span lang-en>Language</span></span>
+        <span><span lang-de>Deutsch</span><span lang-en>German</span></span>
+      </div>
     </div>
   </div>
 
   <div class="book-text-col">
-    <span class="book-label" data-r="up">Das Buch</span>
+    <span class="book-label" data-r="up"><span lang-de>Das Buch</span><span lang-en>The Book</span></span>
     <h2 class="book-title-detail" data-r="up" data-d="1">
-      Eine stille<br>
-      <strong>Welt.</strong>
+      <span lang-de>Eine stille<br><strong>Welt.</strong></span>
+      <span lang-en>A quiet<br><strong>world.</strong></span>
     </h2>
-    <span class="book-sub-detail" data-r="fade" data-d="2">412 Seiten · Light Novel · 2025</span>
+    <span class="book-sub-detail" data-r="fade" data-d="2">
+      <span lang-de>412 Seiten · Light Novel · 2025</span>
+      <span lang-en>412 pages · Light Novel · 2025</span>
+    </span>
     <div class="book-divider" data-r="fade" data-d="2"></div>
 
-    <p class="book-body" data-r="up" data-d="2">
+    <p class="book-body" data-r="up" data-d="2" data-lang-block="de">
       <strong>Minami Doesn't Know She's Missing</strong> ist eine deutsche Light Novel
       mit 412 Seiten – ruhig, emotional und charaktergetrieben. In ruhigem Tempo
       entfaltet sich eine Erzählung, die Raum lässt für Gedanken, Erinnerungen
       und Zwischentöne.
     </p>
-    <p class="book-body" data-r="up" data-d="3">
+    <p class="book-body" data-r="up" data-d="2" data-lang-block="en">
+      <strong>Minami Doesn't Know She's Missing</strong> is a German light novel
+      spanning 412 pages – quiet, emotional, and character-driven. At an unhurried pace,
+      a narrative unfolds that leaves room for thoughts, memories, and the spaces between.
+    </p>
+
+    <p class="book-body" data-r="up" data-d="3" data-lang-block="de">
       Im Mittelpunkt steht Kenji Takahashi, der sich in einer stillen Zwischenphase
       befindet. Während seine Schwestern längst angekommen scheinen, verbindet
       ihn mit Minami eine tiefe, unausgesprochene Nähe – leise und stärker,
       als er es je benennen würde.
     </p>
-    <p class="book-body" data-r="up" data-d="3">
+    <p class="book-body" data-r="up" data-d="3" data-lang-block="en">
+      At the centre stands Kenji Takahashi, adrift in a quiet in-between phase.
+      While his sisters seem to have found their footing, his bond with Minami
+      runs deep and unspoken – quiet and stronger than he would ever put into words.
+    </p>
+
+    <p class="book-body" data-r="up" data-d="3" data-lang-block="de">
       Als Kenji eines Tages einen Brief ohne Absender erhält –
       <em>„Du wurdest ausgewählt."</em> – beginnt eine Entwicklung,
       die ihn aus dem Gewohnten herausführt. Begegnungen, Entscheidungen und
       unausgesprochene Gefühle verändern langsam seinen Blick auf sich selbst.
     </p>
-    <p class="book-body" data-r="up" data-d="4">
+    <p class="book-body" data-r="up" data-d="3" data-lang-block="en">
+      When Kenji one day receives a letter with no sender –
+      <em>"You have been chosen."</em> – a development begins that draws him
+      out of the familiar. Encounters, decisions, and unspoken feelings slowly
+      shift the way he sees himself.
+    </p>
+
+    <p class="book-body" data-r="up" data-d="4" data-lang-block="de">
       Inspiriert vom japanischen Slice-of-Life-Stil. Für Leserinnen und Leser,
       die atmosphärische Geschichten schätzen, in denen leise Momente und
       emotionale Tiefe im Vordergrund stehen. Ein Buch für alle, die das
       Ungesagte zwischen den Zeilen suchen.
+    </p>
+    <p class="book-body" data-r="up" data-d="4" data-lang-block="en">
+      Inspired by the Japanese slice-of-life style. For readers who appreciate
+      atmospheric stories where quiet moments and emotional depth take centre stage.
+      A book for those who seek what goes unsaid between the lines.
     </p>
 
     <div data-r="up" data-d="5">
       <a href="https://www.instagram.com/direct/new/?username=akademie_yume"
          target="_blank" rel="noopener" class="btn-gold"
          onclick="setTimeout(()=>{window.location.href='https://www.instagram.com/akademie_yume/'},1200)">
-        Anfrage senden <span class="btn-gold-arrow">→</span>
+        <span lang-de>Anfrage senden</span><span lang-en>Send inquiry</span>
+        <span class="btn-gold-arrow">→</span>
       </a>
     </div>
   </div>
@@ -110,45 +178,41 @@
 
 <!-- SHIRT RECOMMENDATIONS -->
 <div class="recs">
-  <span class="recs-eyebrow" data-r="up">Zur Geschichte</span>
-  <h2 class="recs-title" data-r="up" data-d="1">Die Shirts</h2>
+  <span class="recs-eyebrow" data-r="up"><span lang-de>Zur Geschichte</span><span lang-en>From the story</span></span>
+  <h2 class="recs-title" data-r="up" data-d="1"><span lang-de>Die Shirts</span><span lang-en>The Shirts</span></h2>
   <div class="recs-grid">
     <div class="rec-card" data-r="up" data-d="1" onclick="location.href='Shirt4.html'">
       <div class="rec-card-img"><img src="images/Shirt1.png" alt=""></div>
-      <div class="rec-info">
-        <div class="rec-name">MINAMI IS MISSING!</div>
-        <a href="Shirt4.html" class="rec-link-btn">Entdecken</a>
-      </div>
+      <div class="rec-info"><div class="rec-name">MINAMI IS MISSING!</div>
+        <a href="Shirt4.html" class="rec-link-btn"><span lang-de>Entdecken</span><span lang-en>Discover</span></a></div>
     </div>
     <div class="rec-card" data-r="up" data-d="2" onclick="location.href='Shirt1.html'">
       <div class="rec-card-img"><img src="images/Shirt2.png" alt=""></div>
-      <div class="rec-info">
-        <div class="rec-name">MINAMI HAS DISAPPEARED!</div>
-        <a href="Shirt1.html" class="rec-link-btn">Entdecken</a>
-      </div>
+      <div class="rec-info"><div class="rec-name">MINAMI HAS DISAPPEARED!</div>
+        <a href="Shirt1.html" class="rec-link-btn"><span lang-de>Entdecken</span><span lang-en>Discover</span></a></div>
     </div>
     <div class="rec-card" data-r="up" data-d="3" onclick="location.href='Shirt2.html'">
       <div class="rec-card-img"><img src="images/Shirt4.png" alt=""></div>
-      <div class="rec-info">
-        <div class="rec-name">DO YOU LOVE JUNÈ?</div>
-        <a href="Shirt2.html" class="rec-link-btn">Entdecken</a>
-      </div>
+      <div class="rec-info"><div class="rec-name">DO YOU LOVE JUNÈ?</div>
+        <a href="Shirt2.html" class="rec-link-btn"><span lang-de>Entdecken</span><span lang-en>Discover</span></a></div>
     </div>
     <div class="rec-card" data-r="up" data-d="4" onclick="location.href='Shirt3.html'">
       <div class="rec-card-img"><img src="images/Shirt3.png" alt=""></div>
-      <div class="rec-info">
-        <div class="rec-name">CRAZY ABOUT HARUKA?</div>
-        <a href="Shirt3.html" class="rec-link-btn">Entdecken</a>
-      </div>
+      <div class="rec-info"><div class="rec-name">CRAZY ABOUT HARUKA?</div>
+        <a href="Shirt3.html" class="rec-link-btn"><span lang-de>Entdecken</span><span lang-en>Discover</span></a></div>
     </div>
   </div>
 </div>
 
 <footer>
   <span class="footer-brand">Akademie Yume</span>
-  <span class="footer-copy">© 2026 – Kein direkter Verkauf. Anfragen über Instagram.</span>
+  <span class="footer-copy">
+    <span lang-de>© 2026 – Kein direkter Verkauf. Anfragen über Instagram.</span>
+    <span lang-en>© 2026 – No direct sales. Inquiries via Instagram.</span>
+  </span>
 </footer>
 
+<script src="lang.js"></script>
 <script>
 // NAVBAR
 const navbar = document.getElementById('navbar');

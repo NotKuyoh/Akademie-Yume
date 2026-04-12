@@ -8,13 +8,19 @@
   <link rel="stylesheet" href="shirt_style.css">
 </head>
 <body>
+
 <header class="navbar" id="navbar">
   <div class="navbar-bg"></div>
   <a href="index.html" class="logo">Akademie Yume</a>
   <nav class="nav-links" id="navLinks">
-    <a href="index.html">Startseite</a><a href="index.html#merch">Shop</a>
-    <a href="index.html#characters">Charaktere</a><a href="index.html#about">About</a>
+    <a href="index.html"><span lang-de>Startseite</span><span lang-en>Home</span></a>
+    <a href="index.html#merch">Shop</a>
+    <a href="index.html#characters"><span lang-de>Charaktere</span><span lang-en>Characters</span></a>
+    <a href="index.html#about">About</a>
   </nav>
+  <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+    <span data-toggle-de>DE</span><span class="lang-sep">|</span><span data-toggle-en>EN</span>
+  </button>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </header>
 
@@ -24,7 +30,10 @@
   <div class="product-hero-content">
     <span class="product-eyebrow">Akademie Yume · Shirt</span>
     <h1 class="product-title">DO YOU LOVE<br>JUNÈ?</h1>
-    <span class="product-hero-sub">Unisex · Oversized Fit · Beidseitig bedruckt</span>
+    <span class="product-hero-sub">
+      <span lang-de>Unisex · Oversized Fit · Beidseitig bedruckt</span>
+      <span lang-en>Unisex · Oversized Fit · Double-sided print</span>
+    </span>
   </div>
   <div class="product-scroll"><div class="product-scroll-track"></div><span>Scroll</span></div>
 </div>
@@ -45,35 +54,85 @@
       <button><img src="images/Shirt4_detail.png" alt=""></button>
     </div>
   </div>
+
   <div class="info-col">
     <span class="info-label" data-r="up">Shirt · 2025</span>
     <h1 class="info-title" data-r="up" data-d="1">DO YOU LOVE<br>JUNÈ?</h1>
-    <span class="info-sub" data-r="fade" data-d="2">Unisex · Oversized Fit · Beidseitig bedruckt</span>
+    <span class="info-sub" data-r="fade" data-d="2">
+      <span lang-de>Unisex · Oversized Fit · Beidseitig bedruckt</span>
+      <span lang-en>Unisex · Oversized Fit · Double-sided print</span>
+    </span>
     <div class="info-divider" data-r="fade" data-d="2"></div>
-    <p class="info-body" data-r="up" data-d="2">Dieses Shirt steht für Qualität, Ruhe und emotionale Zurückhaltung. Das Material überzeugt durch angenehmen Griff, klaren Fall und langlebige Verarbeitung – für Menschen, die Details schätzen.</p>
-    <p class="info-body" data-r="up" data-d="3">Die Frage erscheint klein und zurückhaltend auf der Brust – nicht als Aussage, sondern als leiser Impuls. Ein Moment des Innehaltens, offen für eigene Interpretationen.</p>
-    <p class="info-body" data-r="up" data-d="3">Der Backprint zeigt Juné in einer stillen Szene. Text, Bild und Typografie verbinden sich zu einem Motiv, das wie ein Fragment einer Geschichte wirkt – sanft, melancholisch und bewusst unvollständig.</p>
+
+    <p class="info-body" data-r="up" data-d="2" data-lang-block="de">
+      Dieses Shirt steht für Qualität, Ruhe und emotionale Zurückhaltung. Das Material überzeugt durch angenehmen Griff, klaren Fall und langlebige Verarbeitung – für Menschen, die Details schätzen.
+    </p>
+    <p class="info-body" data-r="up" data-d="2" data-lang-block="en">
+      This shirt stands for quality, calm, and emotional restraint. The fabric impresses with a pleasant hand, clean drape, and durable construction – for people who appreciate the details.
+    </p>
+
+    <p class="info-body" data-r="up" data-d="3" data-lang-block="de">
+      Die Frage erscheint klein und zurückhaltend auf der Brust – nicht als Aussage, sondern als leiser Impuls. Ein Moment des Innehaltens, offen für eigene Interpretationen.
+    </p>
+    <p class="info-body" data-r="up" data-d="3" data-lang-block="en">
+      The question appears small and understated on the chest – not as a statement, but as a quiet impulse. A moment of pause, open to personal interpretation.
+    </p>
+
+    <p class="info-body" data-r="up" data-d="3" data-lang-block="de">
+      Der Backprint zeigt Juné in einer stillen Szene. Text, Bild und Typografie verbinden sich zu einem Motiv, das wie ein Fragment einer Geschichte wirkt – sanft, melancholisch und bewusst unvollständig.
+    </p>
+    <p class="info-body" data-r="up" data-d="3" data-lang-block="en">
+      The back print shows Juné in a quiet scene. Text, image, and typography come together in a motif that feels like a fragment of a story – gentle, melancholic, and deliberately unfinished.
+    </p>
+
     <div data-r="up" data-d="4">
-      <span class="size-heading">Größe wählen</span>
-      <div class="sizes"><button>S</button><button>M</button><button>L</button><button>XL</button><button>XXL</button></div>
+      <span class="size-heading"><span lang-de>Größe wählen</span><span lang-en>Select size</span></span>
+      <div class="sizes">
+        <button>S</button><button>M</button><button>L</button><button>XL</button><button>XXL</button>
+      </div>
     </div>
+
     <div data-r="up" data-d="5">
-      <a href="https://www.instagram.com/direct/new/?username=akademie_yume" target="_blank" rel="noopener" class="btn-gold" onclick="setTimeout(()=>{window.location.href='https://www.instagram.com/akademie_yume/'},1200)">Anfrage senden <span class="btn-gold-arrow">→</span></a>
+      <a href="https://www.instagram.com/direct/new/?username=akademie_yume" target="_blank" rel="noopener" class="btn-gold"
+         onclick="setTimeout(()=>{window.location.href='https://www.instagram.com/akademie_yume/'},1200)">
+        <span lang-de>Anfrage senden</span><span lang-en>Send inquiry</span>
+        <span class="btn-gold-arrow">→</span>
+      </a>
     </div>
   </div>
 </div>
 
 <div class="recs">
-  <span class="recs-eyebrow" data-r="up">Weitere Shirts</span>
-  <h2 class="recs-title" data-r="up" data-d="1">Mehr entdecken</h2>
+  <span class="recs-eyebrow" data-r="up"><span lang-de>Weitere Shirts</span><span lang-en>More shirts</span></span>
+  <h2 class="recs-title" data-r="up" data-d="1"><span lang-de>Mehr entdecken</span><span lang-en>Explore more</span></h2>
   <div class="recs-grid">
-    <div class="rec-card" data-r="up" data-d="1" onclick="location.href='Shirt1.html'"><div class="rec-card-img"><img src="images/Shirt2.png" alt=""></div><div class="rec-card-info"><div class="rec-name">MINAMI HAS DISAPPEARED!</div><a href="Shirt1.html" class="rec-link">Entdecken</a></div></div>
-    <div class="rec-card" data-r="up" data-d="2" onclick="location.href='Shirt3.html'"><div class="rec-card-img"><img src="images/Shirt3.png" alt=""></div><div class="rec-card-info"><div class="rec-name">CRAZY ABOUT HARUKA?</div><a href="Shirt3.html" class="rec-link">Entdecken</a></div></div>
-    <div class="rec-card" data-r="up" data-d="3" onclick="location.href='Shirt4.html'"><div class="rec-card-img"><img src="images/Shirt1.png" alt=""></div><div class="rec-card-info"><div class="rec-name">MINAMI IS MISSING!</div><a href="Shirt4.html" class="rec-link">Entdecken</a></div></div>
+    <div class="rec-card" data-r="up" data-d="1" onclick="location.href='Shirt1.html'">
+      <div class="rec-card-img"><img src="images/Shirt2.png" alt=""></div>
+      <div class="rec-card-info"><div class="rec-name">MINAMI HAS DISAPPEARED!</div>
+        <a href="Shirt1.html" class="rec-link"><span lang-de>Entdecken</span><span lang-en>Discover</span></a></div>
+    </div>
+    <div class="rec-card" data-r="up" data-d="2" onclick="location.href='Shirt3.html'">
+      <div class="rec-card-img"><img src="images/Shirt3.png" alt=""></div>
+      <div class="rec-card-info"><div class="rec-name">CRAZY ABOUT HARUKA?</div>
+        <a href="Shirt3.html" class="rec-link"><span lang-de>Entdecken</span><span lang-en>Discover</span></a></div>
+    </div>
+    <div class="rec-card" data-r="up" data-d="3" onclick="location.href='Shirt4.html'">
+      <div class="rec-card-img"><img src="images/Shirt1.png" alt=""></div>
+      <div class="rec-card-info"><div class="rec-name">MINAMI IS MISSING!</div>
+        <a href="Shirt4.html" class="rec-link"><span lang-de>Entdecken</span><span lang-en>Discover</span></a></div>
+    </div>
   </div>
 </div>
 
-<footer><span class="footer-brand">Akademie Yume</span><span class="footer-copy">© 2026 – Kein direkter Verkauf. Anfragen über Instagram.</span></footer>
+<footer>
+  <span class="footer-brand">Akademie Yume</span>
+  <span class="footer-copy">
+    <span lang-de>© 2026 – Kein direkter Verkauf. Anfragen über Instagram.</span>
+    <span lang-en>© 2026 – No direct sales. Inquiries via Instagram.</span>
+  </span>
+</footer>
+
+<script src="lang.js"></script>
 <script src="shirt_common.js"></script>
 </body>
 </html>

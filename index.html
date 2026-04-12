@@ -6,6 +6,24 @@
   <title>Akademie Yume</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .lang-toggle {
+      display: flex; align-items: center; gap: 0;
+      margin-left: 2rem; background: none; border: none; cursor: pointer;
+      font-family: 'Raleway', sans-serif; font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; padding: 0;
+      color: rgba(238,240,246,0.35); user-select: none;
+    }
+    .lang-toggle span { transition: color 0.3s ease; }
+    .lang-toggle .lang-sep { margin: 0 5px; opacity: 0.3; }
+    .lang-toggle .lang-active { color: var(--gold); }
+    [lang-de], [lang-en] { display: inline; }
+    :root[data-lang='de'] [lang-en] { display: none; }
+    :root[data-lang='en'] [lang-de] { display: none; }
+    [data-lang-block] { display: block; }
+    :root[data-lang='de'] [data-lang-block='en'] { display: none; }
+    :root[data-lang='en'] [data-lang-block='de'] { display: none; }
+  </style>
 </head>
 <body>
 
@@ -13,11 +31,14 @@
   <div class="navbar-bg"></div>
   <a href="#start" class="logo">Akademie Yume</a>
   <nav class="nav-links" id="navLinks">
-    <a href="#start">Startseite</a>
+    <a href="#start"><span lang-de>Startseite</span><span lang-en>Home</span></a>
     <a href="#merch">Shop</a>
-    <a href="#characters">Charaktere</a>
+    <a href="#characters"><span lang-de>Charaktere</span><span lang-en>Characters</span></a>
     <a href="#about">About</a>
   </nav>
+  <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+    <span data-toggle-de>DE</span><span class="lang-sep">|</span><span data-toggle-en>EN</span>
+  </button>
   <button class="burger" id="burger" aria-label="Menü">
     <span></span><span></span><span></span>
   </button>
@@ -30,16 +51,22 @@
   <div class="hero-bg"></div>
   <div class="hero-grad"></div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Deutsche Light Novel · 2025</span>
+    <span class="hero-eyebrow">
+      <span lang-de>Deutsche Light Novel · 2025</span>
+      <span lang-en>German Light Novel · 2025</span>
+    </span>
     <h1>
       Minami<br>
       <strong>Doesn't Know</strong>
       <em style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(3rem,6vw,6rem);font-weight:300;display:block;line-height:1.1;margin-top:0rem;">She's Missing</em>
     </h1>
-    <span class="hero-sub">Emotional · Slice of Life · Romance</span>
+    <span class="hero-sub">
+      <span lang-de>Emotional · Slice of Life · Romance</span>
+      <span lang-en>Emotional · Slice of Life · Romance</span>
+    </span>
     <div class="hero-cta-wrap">
       <a href="#book" class="btn-gold">
-        Zum Buch
+        <span lang-de>Zum Buch</span><span lang-en>To the book</span>
         <span class="btn-gold-arrow">→</span>
       </a>
     </div>
@@ -50,40 +77,56 @@
   </div>
 </section>
 
-
 <!-- ═══ BOOK ═══ -->
 <section id="book" class="book">
   <span class="ghost-num ghost-num-book">01</span>
-
   <div class="book-inner">
     <div class="book-text-col">
-      <span class="section-eyebrow" data-r="up">Das Buch</span>
+      <span class="section-eyebrow" data-r="up"><span lang-de>Das Buch</span><span lang-en>The Book</span></span>
       <h2 class="book-title" data-r="up" data-d="1">
-        412 Seiten.<br>
-        <strong>Eine stille<br>Welt.</strong>
+        <span lang-de>412 Seiten.<br><strong>Eine stille<br>Welt.</strong></span>
+        <span lang-en>412 pages.<br><strong>A quiet<br>world.</strong></span>
       </h2>
       <span class="section-divider" data-r="fade" data-d="2"></span>
 
-      <p class="book-body" data-r="up" data-d="2">
+      <p class="book-body" data-r="up" data-d="2" data-lang-block="de">
         <strong style="color:var(--white);font-weight:600;">Minami Doesn't Know She's Missing</strong> ist eine deutsche
         Light Novel im japanischen Stil – ruhig, emotional und
         charaktergetrieben. In ruhigem Tempo entfaltet sich eine Erzählung,
         die Raum lässt für Gedanken, Erinnerungen und Zwischentöne.
       </p>
-      <p class="book-body" data-r="up" data-d="3">
+      <p class="book-body" data-r="up" data-d="2" data-lang-block="en">
+        <strong style="color:var(--white);font-weight:600;">Minami Doesn't Know She's Missing</strong> is a German
+        light novel in the Japanese style – quiet, emotional, and
+        character-driven. At an unhurried pace, a narrative unfolds that
+        leaves room for thoughts, memories, and the spaces in between.
+      </p>
+
+      <p class="book-body" data-r="up" data-d="3" data-lang-block="de">
         Im Mittelpunkt steht Kenji Takahashi, der sich in einer stillen
         Zwischenzeit befindet. Als er einen Brief ohne Absender erhält –
         <em>„Du wurdest ausgewählt."</em> – beginnt eine Entwicklung,
         die ihn aus dem Gewohnten herausführt.
       </p>
-      <p class="book-body" data-r="up" data-d="3">
+      <p class="book-body" data-r="up" data-d="3" data-lang-block="en">
+        At the centre stands Kenji Takahashi, adrift in a quiet in-between time.
+        When he receives a letter with no sender –
+        <em>"You have been chosen."</em> – a development begins that draws
+        him out of the familiar.
+      </p>
+
+      <p class="book-body" data-r="up" data-d="3" data-lang-block="de">
         Für Leserinnen und Leser, die atmosphärische Geschichten schätzen,
         in denen leise Momente und emotionale Tiefe im Vordergrund stehen.
+      </p>
+      <p class="book-body" data-r="up" data-d="3" data-lang-block="en">
+        For readers who appreciate atmospheric stories where quiet moments
+        and emotional depth take centre stage.
       </p>
 
       <div data-r="up" data-d="4" class="book-cta-desktop">
         <a href="Buch.html" class="btn-gold" style="margin-top:2.5rem;">
-          Jetzt entdecken
+          <span lang-de>Jetzt entdecken</span><span lang-en>Discover now</span>
           <span class="btn-gold-arrow">→</span>
         </a>
       </div>
@@ -99,7 +142,7 @@
 
     <div class="book-cta-mobile">
       <a href="Buch.html" class="btn-gold">
-        Jetzt entdecken
+        <span lang-de>Jetzt entdecken</span><span lang-en>Discover now</span>
         <span class="btn-gold-arrow">→</span>
       </a>
     </div>
@@ -109,85 +152,74 @@
 <!-- ═══ MERCH ═══ -->
 <section id="merch" class="merch">
   <span class="ghost-num ghost-num-merch">02</span>
-
   <div class="merch-inner">
     <div class="merch-header">
       <div data-r="up">
         <span class="section-eyebrow">Merchandise</span>
         <h2 class="merch-title">
-          Die<br>
-          <strong>Shirts</strong>
+          <span lang-de>Die<br><strong>Shirts</strong></span>
+          <span lang-en>The<br><strong>Shirts</strong></span>
         </h2>
       </div>
       <p class="merch-desc" data-r="right" data-d="2">
-        Unisex · Oversized Fit<br>Beidseitig bedruckt
+        <span lang-de>Unisex · Oversized Fit<br>Beidseitig bedruckt</span>
+        <span lang-en>Unisex · Oversized Fit<br>Double-sided print</span>
       </p>
     </div>
 
     <div class="merch-grid">
-
       <div class="shirt-card" data-r="up" data-d="1" onclick="location.href='Shirt4.html'">
         <div class="shirt-card-bg"></div>
-        <div class="shirt-card-img">
-          <img src="images/Shirt1.png" alt="MINAMI IS MISSING">
-        </div>
+        <div class="shirt-card-img"><img src="images/Shirt1.png" alt="MINAMI IS MISSING"></div>
         <div class="shirt-card-info">
           <div class="shirt-name">MINAMI IS MISSING!</div>
           <div class="shirt-sub">Unisex · Oversized</div>
-          <button class="shirt-link">Entdecken</button>
+          <button class="shirt-link"><span lang-de>Entdecken</span><span lang-en>Discover</span></button>
         </div>
       </div>
 
       <div class="shirt-card" data-r="up" data-d="2" onclick="location.href='Shirt1.html'">
         <div class="shirt-card-bg"></div>
-        <div class="shirt-card-img">
-          <img src="images/Shirt2.png" alt="MINAMI HAS DISAPPEARED">
-        </div>
+        <div class="shirt-card-img"><img src="images/Shirt2.png" alt="MINAMI HAS DISAPPEARED"></div>
         <div class="shirt-card-info">
           <div class="shirt-name">MINAMI HAS DISAPPEARED!</div>
           <div class="shirt-sub">Unisex · Oversized</div>
-          <button class="shirt-link">Entdecken</button>
+          <button class="shirt-link"><span lang-de>Entdecken</span><span lang-en>Discover</span></button>
         </div>
       </div>
 
       <div class="shirt-card" data-r="up" data-d="3" onclick="location.href='Shirt3.html'">
         <div class="shirt-card-bg"></div>
-        <div class="shirt-card-img">
-          <img src="images/Shirt3.png" alt="CRAZY ABOUT HARUKA">
-        </div>
+        <div class="shirt-card-img"><img src="images/Shirt3.png" alt="CRAZY ABOUT HARUKA"></div>
         <div class="shirt-card-info">
           <div class="shirt-name">CRAZY ABOUT HARUKA?</div>
           <div class="shirt-sub">Unisex · Oversized</div>
-          <button class="shirt-link">Entdecken</button>
+          <button class="shirt-link"><span lang-de>Entdecken</span><span lang-en>Discover</span></button>
         </div>
       </div>
 
       <div class="shirt-card" data-r="up" data-d="4" onclick="location.href='Shirt2.html'">
         <div class="shirt-card-bg"></div>
-        <div class="shirt-card-img">
-          <img src="images/Shirt4.png" alt="DO YOU LOVE JUNE">
-        </div>
+        <div class="shirt-card-img"><img src="images/Shirt4.png" alt="DO YOU LOVE JUNE"></div>
         <div class="shirt-card-info">
           <div class="shirt-name">DO YOU LOVE JUNÈ?</div>
           <div class="shirt-sub">Unisex · Oversized</div>
-          <button class="shirt-link">Entdecken</button>
+          <button class="shirt-link"><span lang-de>Entdecken</span><span lang-en>Discover</span></button>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-
 <!-- ═══ CHARACTERS ═══ -->
 <section id="characters" class="characters">
   <span class="ghost-num ghost-num-chars">03</span>
-
   <div class="characters-inner">
     <div class="chars-header">
-      <span class="section-eyebrow" data-r="up">Die Geschichte</span>
+      <span class="section-eyebrow" data-r="up"><span lang-de>Die Geschichte</span><span lang-en>The story</span></span>
       <h2 class="chars-title" data-r="up" data-d="1">
-        Die<br><strong>Charaktere</strong>
+        <span lang-de>Die<br><strong>Charaktere</strong></span>
+        <span lang-en>The<br><strong>Characters</strong></span>
       </h2>
     </div>
 
@@ -195,72 +227,86 @@
       <div class="char-track" id="charTrack">
 
         <div class="char-slide active">
-          <div class="char-img-col">
-            <img src="images/Minami.png" alt="Minami">
-          </div>
+          <div class="char-img-col"><img src="images/Minami.png" alt="Minami"></div>
           <div class="char-text-col">
             <span class="char-ghost-name">01</span>
-            <span class="section-eyebrow">Charakter 01</span>
+            <span class="section-eyebrow"><span lang-de>Charakter 01</span><span lang-en>Character 01</span></span>
             <h3 class="char-name">Minami</h3>
             <div class="char-hr"></div>
-            <p class="char-bio">
+            <p class="char-bio" data-lang-block="de">
               Gerade mit der Schule fertig und auf dem Weg in einen neuen Abschnitt.
               Trotz aller Zukunftspläne ist Kenji ihr fester Bezugspunkt.
               In seiner Nähe fühlt sich vieles leichter an – als gäbe es jemanden,
               der sie versteht, noch bevor sie selbst die richtigen Worte findet.
             </p>
+            <p class="char-bio" data-lang-block="en">
+              Fresh out of school and heading into a new chapter.
+              Despite all her plans for the future, Kenji is her steady anchor.
+              Around him, everything feels lighter – as if someone understood her
+              before she even found the right words herself.
+            </p>
           </div>
         </div>
 
         <div class="char-slide">
-          <div class="char-img-col">
-            <img src="images/Kenji.png" alt="Kenji">
-          </div>
+          <div class="char-img-col"><img src="images/Kenji.png" alt="Kenji"></div>
           <div class="char-text-col">
             <span class="char-ghost-name">02</span>
-            <span class="section-eyebrow">Charakter 02</span>
+            <span class="section-eyebrow"><span lang-de>Charakter 02</span><span lang-en>Character 02</span></span>
             <h3 class="char-name">Kenji</h3>
             <div class="char-hr"></div>
-            <p class="char-bio">
+            <p class="char-bio" data-lang-block="de">
               Minamis großer Bruder. Während seine Schwestern scheinbar
               ihren Platz gefunden haben, fühlt Kenji sich noch nicht
               ganz angekommen. Die Verbindung zu Minami gibt ihm Halt –
               leise, vertraut und stärker, als er es je aussprechen würde.
             </p>
-          </div>
-        </div>
-
-        <div class="char-slide">
-          <div class="char-img-col">
-            <img src="images/Haruka.png" alt="Haruka">
-          </div>
-          <div class="char-text-col">
-            <span class="char-ghost-name">03</span>
-            <span class="section-eyebrow">Charakter 03</span>
-            <h3 class="char-name">Haruka</h3>
-            <div class="char-hr"></div>
-            <p class="char-bio">
-              Schwer zu durchschauen. Haruka gibt selten mehr preis als nötig,
-              und bleibt dennoch präsent. In ihren Blicken liegt etwas Ungesagtes,
-              als würde sie Dinge verstehen, bevor andere beginnen, sie zu bemerken.
+            <p class="char-bio" data-lang-block="en">
+              Minami's older brother. While his sisters seem to have found their place,
+              Kenji doesn't quite feel settled yet. His connection to Minami gives him
+              grounding – quiet, familiar, and stronger than he would ever put into words.
             </p>
           </div>
         </div>
 
         <div class="char-slide">
-          <div class="char-img-col">
-            <img src="images/June.png" alt="Juné">
+          <div class="char-img-col"><img src="images/Haruka.png" alt="Haruka"></div>
+          <div class="char-text-col">
+            <span class="char-ghost-name">03</span>
+            <span class="section-eyebrow"><span lang-de>Charakter 03</span><span lang-en>Character 03</span></span>
+            <h3 class="char-name">Haruka</h3>
+            <div class="char-hr"></div>
+            <p class="char-bio" data-lang-block="de">
+              Schwer zu durchschauen. Haruka gibt selten mehr preis als nötig,
+              und bleibt dennoch präsent. In ihren Blicken liegt etwas Ungesagtes,
+              als würde sie Dinge verstehen, bevor andere beginnen, sie zu bemerken.
+            </p>
+            <p class="char-bio" data-lang-block="en">
+              Hard to read. Haruka rarely reveals more than necessary, yet remains
+              present. There is something unspoken in her gaze – as if she understands
+              things before others even begin to notice them.
+            </p>
           </div>
+        </div>
+
+        <div class="char-slide">
+          <div class="char-img-col"><img src="images/June.png" alt="Juné"></div>
           <div class="char-text-col">
             <span class="char-ghost-name">04</span>
-            <span class="section-eyebrow">Charakter 04</span>
+            <span class="section-eyebrow"><span lang-de>Charakter 04</span><span lang-en>Character 04</span></span>
             <h3 class="char-name">Juné</h3>
             <div class="char-hr"></div>
-            <p class="char-bio">
+            <p class="char-bio" data-lang-block="de">
               Direkt, aufmerksam und emotional nah. Juné beobachtet genau
               und spürt Spannungen, bevor sie ausgesprochen werden.
               Ihre Fragen kommen unerwartet, aber nie zufällig –
               sie treffen dort, wo Ehrlichkeit notwendig wird.
+            </p>
+            <p class="char-bio" data-lang-block="en">
+              Direct, attentive, and emotionally close. Juné observes carefully
+              and senses tensions before they are spoken aloud.
+              Her questions come unexpectedly, but never by chance –
+              they land exactly where honesty becomes necessary.
             </p>
           </div>
         </div>
@@ -276,46 +322,74 @@
   </div>
 </section>
 
-
 <!-- ═══ ABOUT ═══ -->
 <section id="about" class="about">
   <span class="ghost-num ghost-num-about">04</span>
-
   <div class="about-inner">
     <div class="about-sticky">
-      <span class="section-eyebrow" data-r="up">Über uns</span>
+      <span class="section-eyebrow" data-r="up"><span lang-de>Über uns</span><span lang-en>About us</span></span>
       <h2 class="about-heading" data-r="up" data-d="1">
-        Über<br><strong>Akademie Yume</strong>
+        <span lang-de>Über<br><strong>Akademie Yume</strong></span>
+        <span lang-en>About<br><strong>Akademie Yume</strong></span>
       </h2>
       <span class="about-line" data-r="fade" data-d="2"></span>
     </div>
 
     <div class="about-right">
-      <p class="about-body" data-r="up">
+      <p class="about-body" data-r="up" data-lang-block="de">
         Akademie Yume ist ein kreatives Projekt, das sich dem leisen,
         emotionalen Erzählen verschrieben hat. Im Mittelpunkt stehen Geschichten,
         die nicht drängen und keine schnellen Antworten liefern wollen.
       </p>
-      <p class="about-body" data-r="up" data-d="1">
+      <p class="about-body" data-r="up" data-lang-block="en">
+        Akademie Yume is a creative project dedicated to quiet, emotional storytelling.
+        At its heart are stories that do not rush and offer no easy answers.
+      </p>
+
+      <p class="about-body" data-r="up" data-d="1" data-lang-block="de">
         Das erste Werk trägt den Titel <em>Minami Doesn't Know She's Missing</em>.
         Es ist eine Geschichte, die sich bewusst Zeit nimmt – für Stille,
         für Zwischentöne und für Gefühle, die nicht immer klar benannt werden können.
       </p>
-      <p class="about-body" data-r="up" data-d="2">
+      <p class="about-body" data-r="up" data-d="1" data-lang-block="en">
+        The first work is titled <em>Minami Doesn't Know She's Missing</em>.
+        It is a story that takes its time deliberately – for silence,
+        for nuance, and for feelings that cannot always be clearly named.
+      </p>
+
+      <p class="about-body" data-r="up" data-d="2" data-lang-block="de">
         Die Entstehung dauerte rund eineinhalb Jahre. Vieles entstand ohne feste Absicht,
         manches wurde verworfen, anderes neu gedacht. Erst mit der Zeit formte sich
         daraus ein geschlossenes Werk, das 2025 fertiggestellt wurde.
       </p>
-      <p class="about-body" data-r="up" data-d="3">
+      <p class="about-body" data-r="up" data-d="2" data-lang-block="en">
+        The creation took around a year and a half. Much arose without fixed intention,
+        some was discarded, other parts rethought. Only over time did it take shape as
+        a cohesive work, completed in 2025.
+      </p>
+
+      <p class="about-body" data-r="up" data-d="3" data-lang-block="de">
         Sämtliche Inhalte – vom geschriebenen Wort über Grafiken bis hin zu Cover,
         Typografie und Layout – entstanden vollständig in Eigenarbeit.
         Jede Entscheidung ist Teil desselben kreativen Prozesses.
       </p>
-      <p class="about-body" data-r="up" data-d="4">
+      <p class="about-body" data-r="up" data-d="3" data-lang-block="en">
+        All content – from the written word to graphics, cover, typography, and layout –
+        was created entirely independently.
+        Every decision is part of the same creative process.
+      </p>
+
+      <p class="about-body" data-r="up" data-d="4" data-lang-block="de">
         Inspiration findet Akademie Yume im japanischen Storytelling.
         Im Fokus stehen nicht große Wendepunkte, sondern kleine Augenblicke:
         ein Blick, ein unausgesprochenes Gefühl, eine kurze Pause zwischen zwei Gedanken.
         Momente, in denen etwas Alltägliches plötzlich eine ganze Welt in sich trägt.
+      </p>
+      <p class="about-body" data-r="up" data-d="4" data-lang-block="en">
+        Akademie Yume finds its inspiration in Japanese storytelling.
+        The focus is not on grand turning points, but small moments:
+        a glance, an unspoken feeling, a brief pause between two thoughts.
+        Moments in which something ordinary suddenly carries an entire world within it.
       </p>
     </div>
   </div>
@@ -325,9 +399,13 @@
 
 <footer>
   <span class="footer-brand">Akademie Yume</span>
-  <span class="footer-copy">© 2026 – Kein direkter Verkauf. Anfragen über Instagram.</span>
+  <span class="footer-copy">
+    <span lang-de>© 2026 – Kein direkter Verkauf. Anfragen über Instagram.</span>
+    <span lang-en>© 2026 – No direct sales. Inquiries via Instagram.</span>
+  </span>
 </footer>
 
+<script src="lang.js"></script>
 <script>
 // ─── FONTS ───
 document.fonts && document.fonts.ready;
@@ -395,7 +473,6 @@ function go(n) {
 prevBtn.addEventListener('click', () => go(current - 1));
 nextBtn.addEventListener('click', () => go(current + 1));
 
-// Touch swipe on the stage
 const stage = track.parentElement;
 let tx = 0;
 stage.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
@@ -403,9 +480,6 @@ stage.addEventListener('touchend', e => {
   const d = tx - e.changedTouches[0].clientX;
   if (Math.abs(d) > 50) go(current + (d > 0 ? 1 : -1));
 });
-
-
-
 </script>
 </body>
 </html>
